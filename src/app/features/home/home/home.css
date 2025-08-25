@@ -415,3 +415,128 @@ rgb(91, 91, 91);
   background-color: white;
   color: #111;
 }
+
+.best-seller{
+  padding: 70px;
+}
+
+.best-seller .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.best-seller .top h2{
+  color: #111;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 46px;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 20px;
+  
+}
+
+.best-seller .top a{
+  text-decoration: none;
+  color: #111;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 26px;
+  font-family: 'Inter', sans-serif ;
+}
+
+.best-seller .products{
+  display: flex;
+  justify-content: space-between;
+}
+
+.best-seller .products .product-card{
+  width: 30%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.image-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.product-card:hover img {
+  filter: brightness(50%);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  color: #fff;
+  font-size: 24px;
+  align-items: center;
+}
+
+.product-card:hover .overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  border-radius: 50px;
+  padding: 10px;
+  padding-top: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.buy-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #7c7c7c;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  transition: 0.3s;
+}
+
+.buy-btn:hover {
+  background-color: #111;
+  color: rgb(255, 255, 255);
+
+}
+
+.best-seller .products .product-card h3{
+  color: #111;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 29px;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 15px;
+}
+
+.best-seller .products .product-card p{
+  color: rgb(91, 91, 91);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26px;
+  font-family: 'Outfit', sans-serif;
+  padding-bottom: 15px;
+  
+}

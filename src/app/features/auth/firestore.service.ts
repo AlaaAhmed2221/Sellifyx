@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, getDocs } from '@angular/fire/firestore';
-
+import { Injectable, inject, runInInjectionContext  } from '@angular/core';
+import {  Firestore, addDoc, collection, collectionData, query, where } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
+  
+  products$: any;
 
-  constructor(private firestore: Firestore) {}
 
   async addProduct(name: string, price: number) {
     try {
-      const docRef = await addDoc(collection(this.firestore, 'products'), {
+      const docRef = await addDoc(collection(this.firestore, 'Products'), {
         name,
         price
       });
@@ -20,10 +21,11 @@ export class FirestoreService {
     }
   }
 
-  async getProducts() {
-    const querySnapshot = await getDocs(collection(this.firestore, 'products'));
-    querySnapshot.forEach(doc => {
-      console.log(`${doc.id} =>`, doc.data());
-    });
+   constructor(private firestore: Firestore) {}
+
+  getGearProducts(): Observable<any[]> {
+    const productsRef = collection(this.firestore, 'products'); // اسم الكوليكشن
+    const q = query(productsRef, where('category', '==', 'geer'));
+    return collectionData(q, { idField: 'id' }) as Observable<any[]>;
   }
 }
