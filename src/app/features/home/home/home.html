@@ -1,0 +1,67 @@
+<main>
+    
+    <section>
+        <header class="nav-root" [class.scrolled]="scrolled">
+    <nav class="nav container">
+        <a routerLink="/" class="brand"><img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo"></a>
+        <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
+        <div class="right">
+        <div class="cart-icon">
+            <span>0</span>
+            <a routerLink="/cart" (click)="open=false"><img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67ff5135b6a0574126b4e3b7_Cart%20Icon.svg" alt="cart"></a>
+        </div>
+
+        <ul class="nav-links" [class.open]="open">
+            <li><a routerLink="/store" (click)="open=false">Store</a></li>
+            <li><a routerLink="/about" (click)="open=false">About</a></li>
+            <li><a routerLink="/support" (click)="open=false">Support</a></li>
+            <li><a routerLink="/blog" (click)="open=false">Blog</a></li>
+            <li><a routerLink="/contact" (click)="open=false">Contact</a></li>
+        </ul>
+
+        <div class="search-box">
+            <svg class="search-icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#878787" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <input type="text">
+            <button type="submit" class="search-btn">Search</button>
+        </div>
+        </div>
+    </nav>
+    </header>
+
+    <div class="color">
+        
+    </div>
+
+    <div class="hero">
+        <div class="first">
+            <h1>Innovative Tech & Stylish Accessories</h1>
+            <p>Explore cutting-edge gadgets and stylish accessories designed to enhance your daily life with innovation, convenience, and a touch of modern elegance.</p>
+            <div class="buttons">
+                <button class="button1">
+                    Explore Products
+                </button>
+                <button class="button2">
+                    About
+                </button>
+            </div>
+        </div>
+
+        <div class="second">
+            <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f9e942e527420e783a5944_Webcam.webp" alt="">
+        </div>
+
+        <div class="third">
+            <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f4f59d06da6424ff3439c1_Smart%20Watch.webp" alt="">
+            <div class="review">
+                <div class="topreview">
+                    <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f240e910db00cd6a0968a8_Customer%20Images.png" alt="">
+                    <h2>30K+</h2>
+                </div>
+                <p>Satisfied customers worldwide. We take pride in delivering top-quality products.</p>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+
+</main>

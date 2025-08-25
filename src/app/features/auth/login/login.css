@@ -1,0 +1,96 @@
+/* === Auth Page Styling === */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #f9f9ff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.auth-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 32px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Heading */
+.auth-container h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.auth-container input {
+  width: 90%;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border: 1px solid #e0e7ff;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: #2e2e31;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+}
+
+/* Button */
+.auth-container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 14px;
+  background: #2e2e31;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.3s ease;
+}
+
+.auth-container button:hover {
+  opacity: 0.9;
+}
+
+.auth-container button:active {
+  transform: translateY(2px);
+}
+
+/* Links */
+.auth-container p {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.auth-container a {
+  color: #2e2e31;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;   
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+/* Message */
+.auth-container .m {
+  margin-top: 12px;
+  color: #478895;
+  font-weight: 500;
+}
