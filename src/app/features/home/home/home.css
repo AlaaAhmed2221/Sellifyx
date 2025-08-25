@@ -540,3 +540,57 @@ rgb(91, 91, 91);
   padding-bottom: 15px;
   
 }
+
+.quality{
+  padding: 70px;
+  align-items: center;
+  text-align: center;
+}
+
+.quality h2{
+  color: #111;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 46px;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 20px;
+}
+
+.quality p{
+  color: rgb(91, 91, 91);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26px;
+  font-family: 'Outfit', sans-serif;
+  padding-bottom: 50px;
+}
+
+.quality a{
+  text-decoration: none;
+  padding: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 26px;
+  border: 2px solid #111;
+  background-color: #111;
+  color: white;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 50px;
+}
+
+.quality a:hover{
+  background-color: white;
+  color: #111;
+}
+
+.quality .photos{
+  padding: 50px 0;
+  display: flex;
+  gap: 30px;
+}
+
+.quality .photos img{
+  width: 50%;
+}
