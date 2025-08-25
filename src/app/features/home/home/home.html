@@ -2,7 +2,7 @@
     
     <section>
         <header class="nav-root" [class.scrolled]="scrolled">
-    <nav class="nav container">
+        <nav class="nav container">
         <a routerLink="/" class="brand"><img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo"></a>
         <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
         <div class="right">
@@ -12,11 +12,11 @@
         </div>
 
         <ul class="nav-links" [class.open]="open">
-            <li><a routerLink="/store" (click)="open=false">Store</a></li>
-            <li><a routerLink="/about" (click)="open=false">About</a></li>
-            <li><a routerLink="/support" (click)="open=false">Support</a></li>
-            <li><a routerLink="/blog" (click)="open=false">Blog</a></li>
-            <li><a routerLink="/contact" (click)="open=false">Contact</a></li>
+            <li><a routerLink="/store" (click)="open=true">Store</a></li>
+            <li><a routerLink="/about" (click)="open=true">About</a></li>
+            <li><a routerLink="/support" (click)="open=true">Support</a></li>
+            <li><a routerLink="/blog" (click)="open=true">Blog</a></li>
+            <li><a routerLink="/contact" (click)="open=true">Contact</a></li>
         </ul>
 
         <div class="search-box">
@@ -61,6 +61,29 @@
             </div>
         </div>
     </div>
+    </section>
+
+    <section class="categories">
+        <div class="category1">
+            <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f4aeb010e30850d1297dc3_Accessory.webp" alt="">
+            <h2>Accessory</h2>
+            <p>Complete your look with stylish and practical accessories</p>
+            <a href="#">Explore Category →</a>
+        </div>
+
+        <div class="category2">
+            <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f22f5732778f33e02c6e36_Water%20Proof%20Glass.webp" alt="">
+            <h2>Technology</h2>
+            <p>Discover cutting-edge innovations and experience the power of technology</p>
+            <a href="#">Explore Category →</a>
+        </div>
+
+        <div class="category3">
+            <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f4aeccba4406a19b5fa9cf_Gear-p-800.webp" alt="">
+            <h2>Gear</h2>
+            <p>Gear up with high-quality equipment for every adventure</p>
+            <a href="#">Explore Category →</a>
+        </div>
     </section>
     
 

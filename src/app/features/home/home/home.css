@@ -254,23 +254,105 @@ rgb(91, 91, 91);
   font-size: 40px;
   font-weight: 400;
 }
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+
+.categories{
+  display: flex;
+  gap: 40px;
+  padding: 70px;
 }
 
-.product-card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
+.categories h2{
+  color: #111;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 46px;
+  font-family: 'Inter', sans-serif;
+  padding: 20px 0;
 }
 
-.product-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
+.categories p{
+  color: rgb(91, 91, 91);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: 'Outfit', sans-serif;
+  max-width: 300px;
+  padding-bottom: 30px;
+}
+
+.categories a{
+  text-decoration: none;
+  color: #111;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 26px;
+  font-family: 'Inter', sans-serif ;
+}
+
+.categories .category1{
+  width: 24%;
+  background-color: #f8f8f8;
+  border-radius: 30px;
+  min-width: 250px;
+  max-height: none;
+  padding-bottom: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow: hidden;
+}
+
+.categories .category1 img{
+    object-fit: cover;
+    object-position: 30% 50%;
+    height: 530px;
+    margin-top: -180px;
+    margin-right: -118px;
+    padding-left: 0;
+    overflow: visible;
+    margin-left: 100px;
+}
+
+.categories .category2{
+  width: 48%;
+  background-color: #f8f8f8;
+  border-radius: 30px;
+  min-width: 250px;
+  max-height: none;
+  padding-bottom: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow: hidden;
+}
+
+.categories .category2 img{
+  object-fit: cover;
+    object-position: 30% 50%;
+    height: 390px;
+    margin-top: -40px;
+    margin-right: -150px;
+    margin-left: 100px;
+    overflow: visible;
+}
+
+.categories .category3{
+  width: 24%;
+  background-color: #f8f8f8;
+  border-radius: 30px;
+  min-width: 250px;
+  max-height: none;
+  padding-bottom: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow: hidden;
+}
+
+.categories .category3 img{
+  object-fit: cover;
+    object-position: 30% 50%;
+    height: 530px;
+    margin-top: -180px;
+    margin-right: -110px;
+    margin-left: 40px;
+    padding-left: 0;
+    overflow: visible;
 }
