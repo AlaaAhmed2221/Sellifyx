@@ -18,11 +18,15 @@ products: any[] = [];
   open: any;
   scrolled: any;
   router: any;
+  productService: any;
 
 constructor(private firestoreService: FirestoreService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.loadGearProducts();
+   const productId = this.router.snapshot.paramMap.get('id');
+this.products = await this.productService.getProductById(productId!);
+
   }
 
   loadGearProducts() {
@@ -35,8 +39,10 @@ constructor(private firestoreService: FirestoreService) {}
   }
 
   goToProduct(id: string) {
-  // نروح للصفحة الخاصة بالبرودكت
+  
   this.router.navigate(['/product', id]);
 }
+
+
 
 }
