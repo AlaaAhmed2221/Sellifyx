@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { CartUiService } from '../../services/cart-ui.service';
+import { Router } from '@angular/router'; // Import Router
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ProductCardComponent {
   @Input() product: any;
   isLoading = false;
 
-  constructor(private cartService: CartService, private cartUi: CartUiService) {}
+  constructor(private cartService: CartService, private cartUi: CartUiService, private router: Router) {}
 
   addToCart() {
     if (this.isLoading) return;
@@ -33,6 +34,10 @@ export class ProductCardComponent {
       this.cartUi.open();
       this.isLoading = false;
     }, 600);
+  }
+
+  viewProductDetails() {
+    this.router.navigate(['/product', this.product.id]);
   }
 }
 
