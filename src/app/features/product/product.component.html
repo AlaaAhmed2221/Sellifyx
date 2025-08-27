@@ -1,0 +1,39 @@
+<div class="store-container">
+
+
+  <!-- Title -->
+  <section class="title">
+    <h1>Store</h1>
+    <p>Explore our store for high-quality products designed with precision, innovation, and care.</p>
+  </section>
+
+  <!-- Categories -->
+  <div class="categories">
+    <button *ngFor="let cat of categories"
+            [class.active]="activeCategory === cat"
+            (click)="setCategory(cat)">
+      {{cat}}
+    </button>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products">
+    <div class="product-card" *ngFor="let p of filteredProducts">
+      <div class="img-box">
+        <img [src]="p.image" [alt]="p.name">
+        <span class="tag">{{p.category}}</span>
+      </div>
+      <div class="info">
+        <div class="price">{{p.price}}</div>
+        <h3>{{p.name}}</h3>
+        <p>{{p.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination (اختياري) -->
+  <div class="pagination">
+    <button>Next</button>
+  </div>
+</div>
+
