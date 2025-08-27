@@ -1,112 +1,105 @@
 <main>
     
-    <section>
-        <header class="nav-root" [class.scrolled]="scrolled">
-        <nav class="nav container">
-        <a routerLink="/" class="brand"><img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo"></a>
-        <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
-        <div class="right">
+   <section>
+  <header class="nav-root" [class.scrolled]="scrolled">
+    <nav class="nav container">
+      <a routerLink="/" class="brand">
+        <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo">
+      </a>
+      <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
+      <div class="right">
         <div class="cart-icon">
-            <span>0</span>
-            <a routerLink="/cart" (click)="open=false"><img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67ff5135b6a0574126b4e3b7_Cart%20Icon.svg" alt="cart"></a>
+          <span>0</span>
+          <a routerLink="/cart" (click)="open=false">
+            <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67ff5135b6a0574126b4e3b7_Cart%20Icon.svg" alt="cart">
+          </a>
         </div>
 
         <ul class="nav-links" [class.open]="open">
-            <li><a routerLink="/store" (click)="open=true">Store</a></li>
-            <li><a routerLink="/about" (click)="open=true">About</a></li>
-            <li><a routerLink="/support" (click)="open=true">Support</a></li>
-            <li><a routerLink="/blog" (click)="open=true">Blog</a></li>
-            <li><a routerLink="/contact" (click)="open=true">Contact</a></li>
-            <li><a routerLink="/settings" (click)="open=true">Settings</a></li>
+          <li><a routerLink="/product/all" (click)="open=false">Store</a></li>
+          <li><a routerLink="/about" (click)="open=true">About</a></li>
+          <li><a routerLink="/support" (click)="open=true">Support</a></li>
+          <li><a routerLink="/blog" (click)="open=true">Blog</a></li>
+          <li><a routerLink="/contact" (click)="open=true">Contact</a></li>
+          <li><a routerLink="/settings" (click)="open=true">Settings</a></li>
         </ul>
 
         <div class="search-box">
-            <svg class="search-icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#878787" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-            <input type="text">
-            <button type="submit" class="search-btn">Search</button>
+          <svg class="search-icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#878787" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <input type="text">
+          <button type="submit" class="search-btn">Search</button>
         </div>
 
         <div class="header-user" (click)="toggleDropdown()">
-<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
-         xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21
-               M16 7C16 9.20914 14.2091 11 12 11
-               C9.79086 11 8 9.20914 8 7
-               C8 4.79086 9.79086 3 12 3
-               C14.2091 3 16 4.79086 16 7Z"
-            stroke="#000000" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
+          <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21 M16 7C16 9.20914 14.2091 11 12 11 C9.79086 11 8 9.20914 8 7 C8 4.79086 9.79086 3 12 3 C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
 
-    <div class="user-dropdown" *ngIf="showDropdown">
-      <ng-container *ngIf="user; else loginOption">
-        <a routerLink="/profile"><p>Welcome, {{ username }}</p></a>
-        <button (click)="logout()">Logout</button>
-      </ng-container>
-
-      <ng-template #loginOption>
-        <button (click)="goToLogin()">Login</button>
-      </ng-template>
-    </div>        </div>
+          <div class="user-dropdown" *ngIf="showDropdown">
+            <ng-container *ngIf="user; else loginOption">
+              <a routerLink="/profile"><p>Welcome, {{ username }}</p></a>
+              <button (click)="logout()">Logout</button>
+            </ng-container>
+            <ng-template #loginOption>
+              <button (click)="goToLogin()">Login</button>
+            </ng-template>
+          </div>
         </div>
+      </div>
     </nav>
-    </header>
+  </header>
 
-    <div class="color">
-        
+  <div class="color"></div>
+
+  <div class="hero">
+    <div class="first">
+      <h1>Innovative Tech & Stylish Accessories</h1>
+      <p>Explore cutting-edge gadgets and stylish accessories designed to enhance your daily life with innovation, convenience, and a touch of modern elegance.</p>
+      <div class="buttons">
+        <button class="button1" [routerLink]="['/product', 'all']">Explore Products</button>
+        <button class="button2">About</button>
+      </div>
     </div>
 
-    <div class="hero">
-        <div class="first">
-            <h1>Innovative Tech & Stylish Accessories</h1>
-            <p>Explore cutting-edge gadgets and stylish accessories designed to enhance your daily life with innovation, convenience, and a touch of modern elegance.</p>
-            <div class="buttons">
-                <button class="button1">
-                    Explore Products
-                </button>
-                <button class="button2">
-                    About
-                </button>
-            </div>
-        </div>
-
-        <div class="second">
-            <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f9e942e527420e783a5944_Webcam.webp" alt="">
-        </div>
-
-        <div class="third">
-            <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f4f59d06da6424ff3439c1_Smart%20Watch.webp" alt="">
-            <div class="review">
-                <div class="topreview">
-                    <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f240e910db00cd6a0968a8_Customer%20Images.png" alt="">
-                    <h2>30K+</h2>
-                </div>
-                <p>Satisfied customers worldwide. We take pride in delivering top-quality products.</p>
-            </div>
-        </div>
+    <div class="second">
+      <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f9e942e527420e783a5944_Webcam.webp" alt="">
     </div>
-    </section>
+
+    <div class="third">
+      <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f4f59d06da6424ff3439c1_Smart%20Watch.webp" alt="">
+      <div class="review">
+        <div class="topreview">
+          <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f240e910db00cd6a0968a8_Customer%20Images.png" alt="">
+          <h2>30K+</h2>
+        </div>
+        <p>Satisfied customers worldwide. We take pride in delivering top-quality products.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="categories">
         <div class="category1">
             <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f4aeb010e30850d1297dc3_Accessory.webp" alt="">
             <h2>Accessory</h2>
             <p>Complete your look with stylish and practical accessories</p>
-            <a href="#">Explore Category →</a>
+        <a [routerLink]="['/product', 'accessory']">Explore Category →</a>
         </div>
 
         <div class="category2">
             <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f22f5732778f33e02c6e36_Water%20Proof%20Glass.webp" alt="">
             <h2>Technology</h2>
             <p>Discover cutting-edge innovations and experience the power of technology</p>
-            <a href="#">Explore Category →</a>
+           <a [routerLink]="['/product', 'technology']">Explore Category →</a>
         </div>
 
         <div class="category3">
             <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f4aeccba4406a19b5fa9cf_Gear-p-800.webp" alt="">
             <h2>Gear</h2>
             <p>Gear up with high-quality equipment for every adventure</p>
-            <a href="#">Explore Category →</a>
+            <a [routerLink]="['/product', 'gear']">Explore Category →</a>
         </div>
     </section>
     
