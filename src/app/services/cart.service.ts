@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface CartItem {
   id: number;
@@ -12,43 +13,65 @@ export interface CartItem {
   providedIn: 'root'
 })
 export class CartService {
-  private items: CartItem[] = [];
+  private itemsSubject = new BehaviorSubject<CartItem[]>([]);
+  public items$: Observable<CartItem[]> = this.itemsSubject.asObservable();
+
+  constructor() {
+    // Optionally load cart from local storage here if needed
+  }
+
+  private saveCart() {
+    this.itemsSubject.next(this.itemsSubject.getValue());
+  }
 
   getCart() {
-    return this.items;
+    return this.itemsSubject.getValue();
   }
 
   addToCart(product: CartItem) {
-    const existing = this.items.find(i => i.id === product.id);
+    const currentItems = this.itemsSubject.getValue();
+    const existing = currentItems.find(i => i.id === product.id);
     if (existing) {
-      existing.quantity += 1;
+      const updatedItems = currentItems.map(item =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      this.itemsSubject.next(updatedItems);
     } else {
-      this.items.push({ ...product, quantity: 1 });
+      const newCart = [...currentItems, { ...product, quantity: 1 }];
+      this.itemsSubject.next(newCart);
     }
   }
 
   removeFromCart(id: number) {
-    this.items = this.items.filter(i => i.id !== id);
+    const updatedItems = this.itemsSubject.getValue().filter(i => i.id !== id);
+    this.itemsSubject.next(updatedItems);
   }
 
   clearCart() {
-    this.items = [];
+    this.itemsSubject.next([]);
   }
 
   updateQuantity(id: number, delta: number) {
-    const item = this.items.find(i => i.id === id);
-    if (!item) return;
-    item.quantity += delta;
-    if (item.quantity <= 0) {
-      this.removeFromCart(id);
-    }
+    const currentItems = this.itemsSubject.getValue();
+    const updatedItems = currentItems.map(item => {
+      if (item.id === id) {
+        const newQuantity = item.quantity + delta;
+        if (newQuantity <= 0) {
+          return null; // Mark for removal
+        } else {
+          return { ...item, quantity: newQuantity };
+        }
+      }
+      return item;
+    }).filter(Boolean) as CartItem[]; // Filter out nulls and cast back
+    this.itemsSubject.next(updatedItems);
   }
 
   getTotalQuantity(): number {
-    return this.items.reduce((sum, i) => sum + i.quantity, 0);
+    return this.itemsSubject.getValue().reduce((sum, i) => sum + i.quantity, 0);
   }
 
   getSubtotal(): number {
-    return this.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+    return this.itemsSubject.getValue().reduce((sum, i) => sum + i.price * i.quantity, 0);
   }
 }

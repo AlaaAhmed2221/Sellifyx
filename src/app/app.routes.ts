@@ -6,11 +6,5 @@ export const routes: Routes = [
   { path: 'product/:id', loadComponent: () => import('./features/products/product-detail/product-detail').then(m => m.ProductDetailComponent) },
   { path: 'auth/login', loadComponent: () => import('./features/auth/login/login').then(m => m.Login) },
   { path: 'auth/register', loadComponent: () => import('./features/auth/register/register').then(m => m.Register) },
-  
-  {
-  path: 'product/:id',
-loadComponent: () => import('./features/product/product').then(m => m.ProductComponent)
-},
-{ path: 'product/:id', loadComponent: () => import('./features/product/product').then(m => m.ProductComponent) },
-{ path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '' }
 ];

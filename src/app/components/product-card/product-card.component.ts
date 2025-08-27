@@ -22,7 +22,13 @@ export class ProductCardComponent {
     this.isLoading = true;
     this.cartUi.showLoading('Loading to cart...');
     setTimeout(() => {
-      this.cartService.addToCart(this.product);
+      const productToAdd = {
+        ...this.product,
+        // Extract only numeric part from price string before converting to Number
+        price: Number(this.product.price.toString().replace(/[^0-9.]/g, '')) || 0,
+        quantity: 1 // Always add 1 when first adding to cart, service handles increments
+      };
+      this.cartService.addToCart(productToAdd);
       this.cartUi.hideLoading();
       this.cartUi.open();
       this.isLoading = false;

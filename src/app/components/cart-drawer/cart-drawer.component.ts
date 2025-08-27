@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService, CartItem } from '../../services/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart-drawer',
@@ -9,14 +10,23 @@ import { CartService, CartItem } from '../../services/cart.service';
   templateUrl: './cart-drawer.component.html',
   styleUrls: ['./cart-drawer.css']
 })
-export class CartDrawerComponent {
+export class CartDrawerComponent implements OnInit, OnDestroy {
   @Input() isOpen = false;
   @Output() close = new EventEmitter<void>();
 
+  items: CartItem[] = [];
+  private cartSubscription: Subscription = new Subscription();
+
   constructor(private cartService: CartService) {}
 
-  get items(): CartItem[] {
-    return this.cartService.getCart();
+  ngOnInit() {
+    this.cartSubscription = this.cartService.items$.subscribe(items => {
+      this.items = items;
+    });
+  }
+
+  ngOnDestroy() {
+    this.cartSubscription.unsubscribe();
   }
 
   get subtotal(): number {
@@ -39,6 +49,16 @@ export class CartDrawerComponent {
 
   decrement(id: number) {
     this.cartService.updateQuantity(id, -1);
+  }
+
+  checkout() {
+    alert('Proceeding to checkout!');
+    this.cartService.clearCart();
+    this.close.emit();
+  }
+
+  trackByCartItem(index: number, item: CartItem): number {
+    return item.id;
   }
 }
 
