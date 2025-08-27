@@ -174,11 +174,32 @@ a{
   .hamburger { display:block; }
   .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; left:0; right:0; top:64px; padding:12px; border-top:1px solid #eee; }
   .nav-links.open { display:flex; }
+  div{
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
 
 .header-user {
   position: relative;
   cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
+
+.header-user svg{
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.header-user svg:hover{
+  background-color: #f3f6fb;
+  border-radius: 50px;
+}
+
+.header-user svg:focus{
+  background-color: #f3f6fb;
+  border-radius: 50px;
 }
 
 .user-dropdown {
@@ -216,6 +237,16 @@ a{
   opacity: 0.9;
 }
 
+.wishlist img{
+  width: 30px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.wishlist img:hover{
+  background-color: #f3f6fb;
+  border-radius: 50px;
+}
 
 .color{
   background-color: #fafafa;
@@ -396,6 +427,120 @@ a{
     margin-left: 40px;
     padding-left: 0;
     overflow: visible;
+}
+
+/* للأجهزة المتوسطة (تابلت) */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 40px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero .first {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .hero .first h1 {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .hero .second img {
+    width: 350px;
+    padding: 20px;
+  }
+
+  .hero .third img {
+    width: 200px;
+  }
+
+  .review {
+    margin: 100px auto 0;
+    width: 90%;
+  }
+
+  .categories {
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .categories .category1,
+  .categories .category2,
+  .categories .category3 {
+    width: 100%;
+    min-width: 220px;
+  }
+
+  .categories .category1 img,
+  .categories .category2 img,
+  .categories .category3 img {
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* للموبايل */
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    padding: 30px 15px;
+    justify-content: center;
+  }
+
+  .hero .first h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .hero .second img {
+    width: 260px;
+    padding: 10px;
+  }
+
+  .hero .third img {
+    width: 160px;
+  }
+
+  .button1, .button2 {
+    width: 100%;
+    margin: 10px 0;
+    padding: 18px;
+    font-size: 15px;
+  }
+
+  .review {
+    margin: 60px  0;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .categories {
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .categories .category1,
+  .categories .category2,
+  .categories .category3 {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .categories .category1 img,
+  .categories .category2 img,
+  .categories .category3 img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
 }
 
 .explore-products{
