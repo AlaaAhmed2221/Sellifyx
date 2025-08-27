@@ -1,0 +1,29 @@
+<div class="drawer" [class.open]="isOpen">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Your Cart</h2>
+    <button class="close-btn" (click)="toggleCart()">✕</button>
+  </div>
+  <div class="drawer-content">
+    <div *ngFor="let item of items" class="item-row">
+      <img [src]="item.image" style="width:64px;height:64px;object-fit:cover;border-radius:8px;" />
+      <div style="flex:1;">
+        <h3 style="margin:0 0 4px 0;">{{ item.name }}</h3>
+        <span class="unit-price">${{ item.price }} USD</span>
+        <p class="price-line">${{ item.price * item.quantity }}</p>
+        <button class="remove-link" (click)="removeItem(item.id)">Remove</button>
+      </div>
+      <div class="item-right">
+        <div class="qty-display" (click)="increment(item.id)">{{ item.quantity }}</div>
+      </div>
+    </div>
+    <div *ngIf="items.length === 0" style="text-align:center;color:#666;padding:24px 0;">No items found.</div>
+  </div>
+  <div class="drawer-footer">
+    <div class="subtotal-row">
+      <span style="color:#111;">Subtotal</span>
+      <strong>{{ subtotal | currency:'USD':'symbol':'1.2-2' }}</strong>
+    </div>
+    <button class="checkout-btn">Continue To Checkout</button>
+  </div>
+</div>
+

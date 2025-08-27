@@ -3,6 +3,26 @@
     margin: 0;
 }
 
+.backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 900;
+}
+
+.cart-loading{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    z-index: 1100;
+}
+
 footer{
     background-color: #111;
     border-top-left-radius: 30px;

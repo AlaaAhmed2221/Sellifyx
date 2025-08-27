@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FirestoreService } from '../../auth/firestore.service';
+import { CartUiService } from '../../../services/cart-ui.service';
+import { CartService } from '../../../services/cart.service';
 import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
 
 @Component({
@@ -24,7 +26,9 @@ scrolled: any;
   constructor(
     private firestoreService: FirestoreService,
     private router: Router,
-    private auth: Auth
+    private auth: Auth,
+    private cartUi: CartUiService,
+    public cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -56,6 +60,11 @@ scrolled: any;
   // Dropdown
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
+  }
+
+  // Open cart like Webflow when clicking cart icon in header
+  openCart() {
+    this.cartUi.open();
   }
 
   logout() {
