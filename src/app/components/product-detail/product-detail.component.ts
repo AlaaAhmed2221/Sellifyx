@@ -24,7 +24,7 @@ export class ProductDetailComponent implements OnInit {
         id: this.productId,
         name: 'Sample Product ' + this.productId,
         description: 'This is a detailed description of Sample Product ' + this.productId + '. It is a high-quality item designed to enhance your daily life.',
-        price: 99.99,
+        price: 99.99, 
         image: 'https://via.placeholder.com/400',
       };
     });
