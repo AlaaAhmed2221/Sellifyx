@@ -30,7 +30,7 @@ export class CartDrawerComponent implements OnInit, OnDestroy {
   }
 
   get subtotal(): number {
-    return this.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    return this.cartService.getSubtotal();
   }
 
   toggleCart() {

@@ -23,9 +23,10 @@ export class ProductDetailComponent implements OnInit {
       // For now, let's simulate some data
       this.product = {
         id: this.productId,
-        name: 'Sample Product ' + this.productId,
-        description: 'This is a detailed description of Sample Product ' + this.productId + '. It is a high-quality item designed to enhance your daily life.',
-        price: 99.99, 
+        name: 'Sports digital watch',
+        category: 'Technology',
+        description: 'Rugged digital sports watch with stopwatch, backlight, water resistance, alarm, and durable design—perfect for workouts and outdoor adventures.',
+        price: 129.99, 
         image: 'https://via.placeholder.com/400',
       };
     });
